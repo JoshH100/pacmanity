@@ -1,4 +1,3 @@
-# Pacmanity
 # Keeps a list of installed packages in a Gist at your GitHub account.
 
 [Trigger]
@@ -12,4 +11,4 @@ Target = *
 Description = Running Pacmanity hook...
 Depends = coreutils
 When = PostTransaction
-Exec = /usr/lib/pacmanity/pacmanity.sh
+Exec = /usr/bin/pactrak

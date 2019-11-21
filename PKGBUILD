@@ -1,6 +1,6 @@
 _pkgname=pactrak
 pkgname=pactrak-git
-pkgver=1.0
+pkgver=3.0.1.r1.gf9730ab
 pkgrel=1
 pkgdesc="Keeps a list of installed packages in a Gist at your GitHub account"
 url="https://github.com/JoshH100/$pkgname"
@@ -12,14 +12,16 @@ source=("$pkgname::git+https://github.com/JoshH100/$_pkgname.git")
 md5sums=('SKIP')
 
 pkgver() {
-    cd aurutils
+    cd $pkgname
     git describe --long --tags | sed 's/\([^-]*-g\)/r\1/; s/-/./g'
 }
 
 package() {
-  # Install script
-  install -Dm755 $srcdir/$_pkgname $pkgdir/usr/lib/$_pkgname
+  cd $srcdir/$pkgname
+  
+  # Install scrip
+  install -Dm755 $_pkgname $pkgdir/usr/bin/$_pkgname
 
   # Install Hook
-  install -Dm755  $srcdir/$_pkgname.hook $pkgdir/usr/share/libalpm/hooks/99-$_pkgname.hook
+  install -Dm755  $_pkgname.hook $pkgdir/usr/share/libalpm/hooks/99-$_pkgname.hook
 }
