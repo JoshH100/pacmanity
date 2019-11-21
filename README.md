@@ -1,3 +1,8 @@
+# Pacmanity Improved
+
+* non-interactive PKGBUILD
+* keeps track of dependency packages and package versions
+
 # Pacmanity
 Keeps a list of installed packages in a Gist at your GitHub account.
 
