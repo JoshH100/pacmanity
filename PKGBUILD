@@ -1,6 +1,6 @@
 _pkgname=pactrak
 pkgname=pactrak-git
-pkgver=3.0.1.r1.gf9730ab
+pkgver=3.0.1.r2.g5ea55a7
 pkgrel=1
 pkgdesc="Keeps a list of installed packages in a Gist at your GitHub account"
 url="https://github.com/JoshH100/$pkgname"

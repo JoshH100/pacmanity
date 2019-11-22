@@ -8,8 +8,8 @@ pactrak_install(){
 
     echo -e "\n- Step 1: Log in to Gist using your GitHub account:"
     [[ -f ~/.gist ]] || gist --login
-    mkdir -p $pkgdir/root
-    cp -v ~/.gist $pkgdir/root/.gist
+    mkdir -p /root
+    cp -v ~/.gist /root/.gist
 
     echo -e "\n- Step 2: Save list of currently installed packages to Gist:"
     GIST_URL=$(
@@ -20,7 +20,7 @@ pactrak_install(){
         ) | gist -p -f $HOSTNAME.pactrak -d "$HOSTNAME: List of installed packages"
     )
 
-    echo "GIST_ID=$GIST_URL" | sed 's/https:\/\/gist.github.com\///g' >> $pkgdir/etc/pactrak
+    echo "GIST_ID=$GIST_URL" | sed 's/https:\/\/gist.github.com\///g' >> /etc/pactrak
 
     echo "An automatically mantained list of installed packages"
     echo "has been successfully created in your GitHub Gist."
@@ -41,7 +41,7 @@ pactrak_update(){
 PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 
 # Load config
-[[ -r '/etc/pactrak' ]] && source $pkgdir/etc/pactrak
+[[ -r '/etc/pactrak' ]] && source /etc/pactrak
 
 # Determine if fresh install is needed
 if [ -z "$GIST_ID" ]; then
